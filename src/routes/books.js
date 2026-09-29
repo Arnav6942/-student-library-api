@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
   res.json(books);
 });
 
+// Search books by title, e.g. GET /books/search?q=harry
+router.get('/search', (req, res) => {
+  const q = req.query.q || '';
+  const books = db.prepare("SELECT id, title, author FROM books WHERE title LIKE '%" + q + "%'").all();
+  res.json(books);
+});
+
 router.get('/:id', (req, res) => {
   const book = db.prepare('SELECT id, title, author, year, copies FROM books WHERE id = ?').get(Number(req.params.id));
   if (!book) return res.status(404).json({ error: 'book not found' });

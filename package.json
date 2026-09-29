@@ -1,0 +1,16 @@
+{
+  "name": "student-library-api",
+  "version": "1.0.0",
+  "description": "REST API for the college library: books, members and loans.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
